@@ -1,0 +1,28 @@
+<div class="contents row">
+  <% @matters.each do |matter| %>
+    
+    <div class="content_post" style="background-image: url(<%= matter.image %>);">
+     <div class="more">
+     <%= link_to '詳細', matter_path(matter.id), method: :get %>
+      <span><%#= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%#= link_to '詳細', matter_path(matter.id), method: :get %>
+          </li>
+          <li>
+            <%#= link_to '編集', edit_matter_path(matter.id), method: :get %>
+          </li>
+          <li>
+            <%#= link_to '削除', matter_path(matter.id), method: :delete %>
+          </li>
+        </ul>
+      </div>
+      <%= image_tag matter.image.variant(resize: '700x400'), class: 'matter-image' if matter.image.attached? %>
+      <a>案件名：<%= matter.name %></a>
+      <p>目標金額￥<%= matter.price %></p>
+      <span class="explain">
+        <%#= matter.explain %>
+      </span>
+    </div>
+  <% end %>
+</div>

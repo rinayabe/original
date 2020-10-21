@@ -1,0 +1,17 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する</h3>
+    <%= form_with(model: @matter, local: true) do |form| %>
+      <%= form.text_area :name, placeholder:"案件名（必須 40文字まで)", maxlength:"40" %>
+      <%= form.text_area :price, placeholder: "募集金額 例）300" %>
+      <%= form.text_area :explain, placeholder: "案件説明", rows: "10" %>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= form.file_field :image, id:"matter-image" %>
+      </div>
+      <%= form.submit "SEND" %>
+    <% end %>
+  </div>
+</div>
