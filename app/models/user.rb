@@ -10,7 +10,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\z/i.freeze
-    validates :email,              uniqueness: true
+    validates :email,              uniqueness: { case_sensitive: true }
     validates_format_of :email,    with: VALID_EMAIL_REGEX
     validates :password
   end
