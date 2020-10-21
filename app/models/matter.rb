@@ -3,7 +3,12 @@ class Matter < ApplicationRecord
   belongs_to :user
   has_many :donations
 
-  validates :price, presence: true
-  validates :name, presence: true
-  validates :explain, presence: true
+  with_options presence: true do
+    validates :image
+    validates :name
+    validates :explain
+    PRICE_REGEX = /\A[0-9]+\z/.freeze
+    validates :price, inclusion: { in: (1..999_999_999) },
+                      format: { with: PRICE_REGEX }
+  end
 end
