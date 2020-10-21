@@ -24,7 +24,7 @@ RSpec.describe Donation, type: :model do
         @donation.valid?
         expect(@donation.errors.full_messages).to include("Price can't be blank")
       end
-  
+
       it 'priceが0円であれば登録できない' do
         @donation.price = '0'
         @donation.valid?

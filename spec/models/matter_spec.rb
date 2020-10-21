@@ -23,7 +23,6 @@ RSpec.describe Matter, type: :model do
       @matter.price = '555'
       expect(@matter).to be_valid
     end
-
   end
 
   context '出品がうまくいかないとき' do
