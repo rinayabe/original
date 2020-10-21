@@ -1,7 +1,7 @@
 class Matter < ApplicationRecord
   has_one_attached :image
-  belongs_to :user
-  has_many :donations
+  belongs_to :user, foreign_key: "matter_id", dependent: :destroy
+  has_many :donations, foreign_key: "matter_id", dependent: :destroy
 
   with_options presence: true do
     validates :image
