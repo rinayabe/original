@@ -1,7 +1,7 @@
 <div class="contents row">
   <div class="container">
     <h3>投稿する</h3>
-    <%= render 'layouts/error_messages', model: form.object %>
+    <%= render 'layouts/error_messages', model: @matter %>
     <%= form_with(model: @matter, local: true) do |form| %>
       <%= form.text_area :name, placeholder:"案件名（必須 40文字まで)", maxlength:"40" %>
       <%= form.text_area :price, placeholder: "募集金額 例）300" %>
