@@ -1,7 +1,7 @@
 class MattersController < ApplicationController
   before_action :set_tweet, only: [:edit, :show]
   def index
-    @matters = Matter.includes(:user).order("created_at DESC")
+    @matters = Matter.includes(:user).order('created_at DESC')
   end
 
   def new
