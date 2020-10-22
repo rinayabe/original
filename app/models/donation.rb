@@ -5,6 +5,6 @@ class Donation < ApplicationRecord
   validates :price, presence: true
   validates :token, presence: true
   PRICE_REGEX = /\A[0-9]+\z/.freeze
-  validates :price, inclusion: { in: (1..999_999_999) },
+  validates :price, inclusion: { in: (50..9_999_999) },
                     format: { with: PRICE_REGEX }
 end

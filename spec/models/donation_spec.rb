@@ -25,14 +25,14 @@ RSpec.describe Donation, type: :model do
         expect(@donation.errors.full_messages).to include("Price can't be blank")
       end
 
-      it 'priceが0円であれば登録できない' do
+      it 'priceが50円未満であれば登録できない' do
         @donation.price = '0'
         @donation.valid?
         expect(@donation.errors.full_messages).to include('Price is not included in the list')
       end
 
-      it 'priceが1,000,000,000円以上であれば登録できない' do
-        @donation.price = '1000000000'
+      it 'priceが10,000,000円以上であれば登録できない' do
+        @donation.price = '10000000'
         @donation.valid?
         expect(@donation.errors.full_messages).to include('Price is not included in the list')
       end
