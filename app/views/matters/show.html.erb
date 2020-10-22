@@ -24,7 +24,7 @@
   <%= @matter.explain %>
   <div class="container">
     <% if current_user %>
-    <%= render 'layouts/error_messages', model: @domation %>
+    <%#= render 'layouts/error_messages', model: @domation %>
       <%= form_with(model: [@matter, @donation], id: 'charge-form', class: 'card-form', local: true) do |form| %>
         <%= form.label :price,  "募金額" %>
         <%= form.text_field :price, placeholder: "例）300" %>
